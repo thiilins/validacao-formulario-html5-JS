@@ -5,17 +5,18 @@
  */
 export function valida(input) {
   const inputType = input.dataset.type;
+  const divPai = input.parentElement;
+  const spanErro = input.parentElement.querySelector(".input-mensagem-erro");
   if (validadores[inputType]) {
     validadores[inputType](input);
   }
 
   if (input.validity.valid) {
-    input.parentElement.classList.remove("input-container--invalido");
-    input.parentElement.querySelector(".input-mensagem-erro").innerHtml = "";
+    divPai.classList.remove("input-container--invalido");
+    spanErro.textContent = "";
   } else {
-    input.parentElement.classList.add("input-container--invalido");
-    input.parentElement.querySelector(".input-mensagem-erro").innerHtml =
-      mostrarMsgErro(inputType, input);
+    divPai.classList.add("input-container--invalido");
+    spanErro.textContent = mostrarMsgErro(inputType, input);
   }
 }
 const validadores = {
@@ -23,9 +24,8 @@ const validadores = {
 };
 
 /**
- * Estrutura de validação global
+ * Estrutura de mensagens de erro global
  */
-// Mensagens de erro personalizada por tipo de erro
 const mensagensDeErro = {
   nome: { valueMissing: "O campo nome não pode estar em branco" },
   email: {
@@ -54,8 +54,14 @@ const tiposDeErros = [
 
 function mostrarMsgErro(inputType, input) {
   let mensagem = "";
+  tiposDeErros.forEach((erro) => {
+    if (input.validity[erro]) {
+      mensagem = mensagensDeErro[inputType][erro];
+    }
+  });
   return mensagem;
 }
+
 /**
  * Validação de Data de nascimento e maioridade
  */
