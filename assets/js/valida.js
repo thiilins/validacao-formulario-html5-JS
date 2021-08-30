@@ -3,6 +3,7 @@
  * os recursos, criaremos uma função 'genérica' que servira para validar todos os campos
  * e abaixo um objeto onde conterá o dataSet do input e especificando qual função acionar
  */
+
 export function valida(input) {
   const inputType = input.dataset.type;
   const divPai = input.parentElement;
@@ -35,7 +36,7 @@ const mensagensDeErro = {
   senha: {
     valueMissing: "O campo senha não pode estar em branco ",
     patternMisMatch:
-      "A Senha deve conter entre 8 a 12 caracteres e pelo menos 1 letra minuscula, 1 letra maiuscula e um número",
+      "A Senha deve conter entre 8 á 12 caracteres e pelo menos 1 letra minuscula, 1 letra maiuscula e um número",
   },
   dataNascimento: {
     valueMissing: "O campo data de nascimento não pode estar em branco",
@@ -65,6 +66,7 @@ function mostrarMsgErro(inputType, input) {
 /**
  * Validação de Data de nascimento e maioridade
  */
+ 
 function validaNascimento(input) {
   //Transformar a String em Data
   const dataRecebida = new Date(input.value);
