@@ -125,11 +125,14 @@
               <input
                 name="cep"
                 id="cep"
+                data-type="cep"
+                pattern="^[\d]{5}-?[\d]{3}$"
                 class="input"
                 type="text"
                 placeholder="CEP"
+                required
               />
-              <label class="input-label" for="cep">CEP</label>
+              <label class="input-label" for="cep"> CEP </label>
               <span class="input-mensagem-erro">
                 Este campo não está válido
               </span>
@@ -138,9 +141,11 @@
               <input
                 name="logradouro"
                 id="logradouro"
+                data-type="logradouro"
                 class="input"
                 type="text"
                 placeholder="Logradouro"
+                required
               />
               <label class="input-label" for="logradouro">Logradouro</label>
               <span class="input-mensagem-erro">
@@ -151,9 +156,11 @@
               <input
                 name="cidade"
                 id="cidade"
+                data-type="cidade"
                 class="input"
                 type="text"
                 placeholder="Cidade"
+                required
               />
               <label class="input-label" for="cidade">Cidade</label>
               <span class="input-mensagem-erro">
@@ -164,9 +171,11 @@
               <input
                 name="estado"
                 id="estado"
+                data-type="estado"
                 class="input"
                 type="text"
                 placeholder="Estado"
+                required
               />
               <label class="input-label" for="estado">Estado</label>
               <span class="input-mensagem-erro">
