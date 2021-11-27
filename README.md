@@ -1,2 +1,2 @@
 ﻿# validacao-formulario-html5-JS
-https://tgbr.site/doguito_validacao
+https://tgpro.site/doguito_validacao
